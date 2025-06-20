@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,8 +69,8 @@
         .slide-heading-primary {
             font-size: 3rem;
             font-weight: 700;
-            color: #00ff88;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            color: #ff6b6b;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
             margin-bottom: 30px;
             letter-spacing: normal;
         }
@@ -84,7 +84,7 @@
         }
 
         .slide-heading-tertiary {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #4ecdc4;
             margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
@@ -92,7 +92,7 @@
         }
 
         .slide-text, .slide-list-item {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 20px;
             color: #e8e8e8;
@@ -140,7 +140,7 @@
         
         .webpage-container .webpage-text {
             color: #333;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
             margin: 15px 0;
             font-family: serif;
@@ -166,7 +166,7 @@
         
         .webpage-container .webpage-list {
             color: #333;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
             margin: 15px 0;
             padding-left: 25px;
@@ -385,7 +385,7 @@
         .tag-name {
             color: #00ff88;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
@@ -428,7 +428,7 @@
             color: white;
             padding: 15px 30px;
             border-radius: 25px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
             border: none;
@@ -621,7 +621,15 @@
         /* RESPONSIVE STYLES */
         @media screen and (max-width: 768px) {
             .slide {
-                padding: 40px 25px;
+                padding: 60px 25px 80px 25px; /* Consistent beautiful top/bottom spacing */
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .slide-content {
+                margin: 40px 0; /* Extra top/bottom margin for content */
             }
 
             /* Scale down main headings */
@@ -706,7 +714,7 @@
             /* Scale down code blocks with better spacing */
             .code-block {
                 padding: 25px;
-                font-size: 0.8rem;
+                font-size: 1rem;
                 margin: 35px 0;
             }
 
@@ -811,7 +819,15 @@
 
         @media screen and (max-width: 480px) {
             .slide {
-                padding: 30px 20px;
+                padding: 50px 20px 70px 20px; /* Consistent beautiful top/bottom spacing for small mobile */
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .slide-content {
+                margin: 30px 0; /* Extra top/bottom margin for content */
             }
 
             /* Even smaller headings for very small screens */
@@ -828,6 +844,11 @@
             .slide-heading-secondary {
                 font-size: 1.3rem;
                 margin-bottom: 30px;
+            }
+
+            .slide-heading-tertiary {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
             }
 
             .subtitle {
@@ -962,8 +983,8 @@
     <!-- Slide 2: What we're going to learn here -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary">What we're going to learn here</h2>
-            <p class="subtitle">Every expert was once a beginner!</p>
+            <h3 class="slide-heading-primary">What we're going to learn here</h3>
+             <p style="padding-bottom:50px;"class="slide-text">Basic<span class="highlight"> HTML</span> and<span class="highlight"> CSS</span></p>
             <ul class="slide-list">
                 <li class="slide-list-item">Simple HTML structure</li>
                 <li class="slide-list-item">Basic tags: h1, p, div, img, a</li>
@@ -978,7 +999,8 @@
     <!-- Slide 3: House Metaphor -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary" style="padding-bottom:30px;">Think of Building a House</h2>
+            <h3 class="slide-heading-primary" >Think of Building a House</h3>
+             <p style="padding-bottom:50px;"class="slide-text"><span class="highlight">HTML</span> builds the skeleton, <span class="highlight">CSS</span> makes it beautiful!</p>
             <div class="house-metaphor">
                 <div>
                     <h4 class="slide-heading-tertiary" style="padding-bottom:15px;">HTML = Structure</h4>
@@ -997,7 +1019,7 @@
                     <p style="padding-top:15px;" class="small-text">Colors, textures, and styling</p>
                 </div>
             </div>
-            <p class="slide-text"><span class="highlight">HTML</span> builds the skeleton, <span class="highlight">CSS</span> makes it beautiful!</p>
+           
         </div>
         <div class="slide-number">03</div>
     </div>
@@ -1005,7 +1027,7 @@
     <!-- Slide 4: What is HTML? -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary" style="padding-bottom:30px;">What is HTML?</h2>
+            <h3 class="slide-heading-primary" style="padding-bottom:30px;">What is HTML?</h3>
             <ul class="slide-list">
                 <li class="slide-list-item"><span class="highlight">H</span>yper<span class="highlight">T</span>ext <span class="highlight">M</span>arkup <span class="highlight">L</span>anguage</li>
                 <li class="slide-list-item">Uses the <span class="highlight">DOM</span> or <span class="highlight"> D</span>ocument<span class="highlight"> O</span>bject<span class="highlight"> M</span>odel to make up the skeleton and structure of every webpage</li>
@@ -1019,7 +1041,7 @@
     <!-- Slide 5: Common HTML Tags -->
     <div class="slide">
         <div class="slide-content">
-            <h3 class="slide-heading-secondary">Essential HTML Tags</h3>
+            <h3 class="slide-heading-primary">Essential HTML Tags</h3>
             <div class="tag-showcase">
                 <div class="tag-example">
                     <div class="tag-name">&lt;h1&gt; to &lt;h6&gt;</div>
@@ -1053,7 +1075,7 @@
     <!-- Slide 6: Basic HTML Structure -->
     <div class="slide">
         <div class="slide-content">
-            <h3 class="slide-heading-secondary">The HTML DOM with Tags!</h3>
+            <h3 class="slide-heading-primary">The HTML DOM with Tags!</h3>
            <div class="code-block">
                             &lt;html&gt;
                         <br> &lt;head&gt;&lt;/head&gt;
@@ -1078,11 +1100,11 @@
     <!-- Slide 7: HTML Tags in Action -->
     <div class="slide">
         <div class="slide-content">
-            <h3 class="slide-heading-secondary">HTML Tags in Action</h3>
-            <p style="margin-bottom:50px;" class="small-text">HTML creates the <span class="highlight">structure</span> of content</p>
+            <h3 class="slide-heading-primary">HTML Tags in Action</h3>
+            <p style="margin-bottom:50px;" class="slide-text">HTML creates the <span class="highlight">structure</span> of content</p>
             <div class="two-column">
                 <div>
-                    <h4 class="slide-heading-tertiary">The Code:</h4>
+                    <h4 class="slide-heading-tertiary">The HTML :</h4>
                     <div class="code-block">
                         &lt;h1&gt;My Blog Post&lt;/h1&gt;
                        <br> &lt;p&gt;Welcome to my &lt;a href="about.html"&gt;amazing&lt;/a&gt; blog!&lt;/p&gt;
@@ -1117,7 +1139,7 @@
     <!-- Slide 8: What is CSS? -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary">What is CSS?</h2>
+            <h3 class="slide-heading-primary">What is CSS?</h3>
             <ul class="slide-list">
                 <li class="slide-list-item"><span class="highlight">C</span>ascading <span class="highlight">S</span>tyle <span class="highlight">S</span>heets</li>
                 <li class="slide-list-item">The paint, wallpaper, and interior design of the web</li>
@@ -1132,7 +1154,7 @@
     <!-- Slide 9: CSS Classes -->
     <div class="slide">
         <div class="slide-content">
-            <h3 class="slide-heading-secondary">Use CSS Classes to Style Tags</h3>
+            <h3 class="slide-heading-primary">Use CSS Classes to Style Tags</h3>
             <p class="slide-text" style="margin-bottom: 30px;">They start with a <span class="highlight">.</span> in CSS and use <span class="highlight">class=""</span> in HTML!</p>
             <div class="class-demo">
                 <div>
@@ -1165,8 +1187,8 @@
     <!-- Slide 10: The Difference of CSS -->
     <div class="slide">
         <div class="slide-content">
-            <h3 class="slide-heading-secondary">The Difference of CSS</h3>
-           <p style="margin-bottom:50px;" class="small-text">CSS creates the <span class="highlight">style</span> of content</p>
+            <h3 class="slide-heading-primary">The Difference of CSS</h3>
+           <p style="margin-bottom:50px;" class="slide-text">CSS creates the <span class="highlight">style</span> of content</p>
             <div class="two-column">
                 <div>
                      <div>
@@ -1188,13 +1210,13 @@
                     <h4 class="slide-heading-tertiary">HTML + CSS (Styled):</h4>
                     <div class="comparison-container-styled">
                         <h1 class="comparison-title-styled">My Blog Post</h1>
-                        <p class="comparison-text-styled">Welcome to my <a href="#" class="webpage-link-special" onclick="alert('Link clicked!'); return false;">amazing</a> blog!</p>
+                        <p class="comparison-text-styled">Welcome to my <a href="#" style="text-decoration: underline;"class="webpage-link-special" onclick="alert('Link clicked!'); return false;">amazing</a> blog!</p>
                        <div style="text-align: center;"> <img style="max-width: 100px; border-radius: 16px;border: 2px solid black; text-align:center; margin:auto;" src="https://www.shutterstock.com/image-vector/vector-silhouette-dog-on-white-600nw-2497950891.jpg" alt="My photo" class="webpage-image"></div>
                        <h2  style="margin-top:30px; class="webpage-heading">My Favorite Things:</h2>
                     <ul style="margin-top:20px;"class="comparison-list-styled">
-                        <li class="webpage-list-item">Dogs</li>
-                        <li  style="margin-top:10px; class="webpage-list-item">Coffee</li>
-                        <li  style="margin-top:10px; class="webpage-list-item">Cats</li>
+                        <li style="margin-top:10px; color:pink" class="webpage-list-item">Dogs</li>
+                        <li  style="margin-top:10px; color:hotpink" class="webpage-list-item">Coffee</li>
+                        <li  style="margin-top:10px; color:maroon" class="webpage-list-item">Cats</li>
                     </ul>
 
                          <div>
@@ -1211,7 +1233,7 @@
        <!-- Slide 13: Animation Demo -->
  <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary">CSS Animation</h2>
+            <h3 class="slide-heading-primary">CSS Animation</h3>
             <div class="demo-box">
                 ANIMATED!
             </div>
@@ -1232,60 +1254,60 @@
         <br>     }
       </div>
         </div>
-        <div class="slide-number">13</div>
+        <div class="slide-number">11</div>
     </div>
 
     <!-- Slide 11: HTML + CSS Together -->
     <div class="slide">
         <div class="slide-content">
-            <h2 style="margin-bottom:50px;"class="slide-heading-primary"><span class="highlight">Together</span> CSS & HTML make beautiful, functional websites!</h2>
+            <h3 style="margin-bottom:50px;"class="slide-heading-primary">CSS & HTML make beautiful, functional websites!</h3>
             <div class="two-column">
                 <div>
-                    <h4 class="slide-heading-tertiary" style="text-align: center;">HTML Provides:</h4>
-                    <ul style="text-align: center;margin-bottom:20px;" class="slide-list; ">
-                        <p class="slide-list-item">Content structure</p>
-                        <p class="slide-list-item">Semantic meaning</p>
-                        <p class="slide-list-item">Text and images</p>
-                        <p  dclass="slide-list-item">The foundation</p>
+                    <h4 class="slide-heading-tertiary" style="text-align: center;margin-bottom:30px;">HTML Provides:</h4>
+                    <ul style="text-align: center;margin-bottom:10px;" class="slide-list; ">
+                        <p style="margin-bottom:10px;" class="slide-list-item">Content structure</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">Semantic meaning</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">Text and images</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">The foundation</p>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="slide-heading-tertiary" style="text-align: center;">CSS Provides:</h4>
-                    <ul style="text-align: center;margin-bottom: 20px;" class="slide-list">
-                        <p class="slide-list-item">Visual appearance</p>
-                        <p class="slide-list-item">Layout and positioning</p>
-                        <p class="slide-list-item">Colors and fonts</p>
-                        <p class="slide-list-item">Animations and effects</p>
+                    <h4 class="slide-heading-tertiary" style="text-align: center;margin-bottom:30px;">CSS Provides:</h4>
+                    <ul style="text-align: center;margin-bottom: 10px;" class="slide-list">
+                        <p style="margin-bottom:10px;" class="slide-list-item">Visual appearance</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">Layout and positioning</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">Colors and fonts</p>
+                        <p style="margin-bottom:10px;" class="slide-list-item">Animations and effects</p>
 
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="slide-number">11</div>
+        <div class="slide-number">12</div>
     </div>
 
     <!-- Slide 14: Getting Started -->
     <div class="slide">
         <div class="slide-content">
-            <h2 class="slide-heading-primary">A look at LegalZoom's Builder</h2>
-            <p class="subtitle">We use Builder.io to host our pages</p>
+            <h3 class="slide-heading-primary">A look at LegalZoom's Builder</h3>
+            <p style="margin-bottom:50px;" class="slide-text">We use <span class="highlight">Builder.io</span> to create our Web pages</p>
             
             <div class="builder-showcase">
                 <div class="builder-image-container">
                     <h4 class="slide-heading-tertiary">Builder Interface</h4>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Builder Interface" class="builder-image">
+                    <img src="Builderinterface.png" alt="Builder Interface" class="builder-image">
                 </div>
                 <div class="builder-image-container">
                     <h4 class="slide-heading-tertiary">HTML in Builder</h4>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="HTML in Builder" class="builder-image">
+                    <img src="css.png" alt="HTML in Builder" class="builder-image">
                 </div>
                 <div class="builder-image-container">
                     <h4 class="slide-heading-tertiary">CSS in Builder</h4>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="CSS in Builder" class="builder-image">
+                    <img src="html.png" alt="CSS in Builder" class="builder-image">
                 </div>
             </div>
         </div>
-        <div class="slide-number">14</div>
+        <div class="slide-number">13</div>
     </div>
 
     <!-- Slide 15: Thank You -->
@@ -1293,9 +1315,8 @@
         <div class="slide-content">
             <h1 class="slide-title-main">Ready to Build?</h1>
             <p class="subtitle">HTML + CSS = Endless Possibilities</p>
-            <p class="slide-text">Build the web, one element at a time!</p>
         </div>
-        <div class="slide-number">15</div>
+        <div class="slide-number">14</div>
     </div>
 </body>
 </html>
