@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Retro Slides</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            border-bottom: 3px solid #00ff88;
+            position: relative;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .slide-content {
+            z-index: 1;
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .slide-title-main {
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+
+        .slide-heading-primary {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            margin-bottom: 30px;
+            letter-spacing: normal;
+        }
+
+        .slide-heading-secondary {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+            letter-spacing: normal;
+        }
+
+        .slide-heading-tertiary {
+            font-size: 1.5rem;
+            color: #4ecdc4;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+            letter-spacing: normal;
+        }
+
+        .slide-text, .slide-list-item {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #e8e8e8;
+            letter-spacing: 0.5px;
+            padding: 0 10px;
+        }
+
+        .slide-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .webpage-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .webpage-container .webpage-title {
+            color: #333;
+            font-size: 2.5rem;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            font-family: serif;
+        }
+        
+        .webpage-container .webpage-heading {
+            color: #333;
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+            font-family: serif;
+        }
+
+        .webpage-link-special{
+            text-decoration: none;
+            font-weight: 900;
+            color: black;
+        }
+        
+        .webpage-container .webpage-text {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 15px 0;
+            font-family: serif;
+        }
+        
+        .webpage-container .webpage-link {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        .webpage-container .webpage-link:hover {
+            color: #004499;
+        }
+        
+        .webpage-container .webpage-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .webpage-container .webpage-list {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 15px 0;
+            padding-left: 25px;
+            font-family: serif;
+        }
+        
+        .webpage-container .webpage-list-item {
+            margin: 8px 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            width: 100%;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #00ff88;
+            text-align: left;
+            margin: 30px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: scanline 2s infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #4ecdc4;
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+            letter-spacing: 1px;
+            padding: 0 20px;
+        }
+
+        .demo-box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 20px;
+            margin: 30px auto;
+            animation: retroPulse 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-model-demo {
+            width: 400px;
+            height: 250px;
+            margin: 50px auto;
+            position: relative;
+            background: #4ecdc4;
+            padding: 30px;
+            border: 15px solid #ff6b6b;
+            box-shadow: 0 0 0 25px #f9ca24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            letter-spacing: 1px;
+        }
+
+        .box-labels {
+            position: absolute;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .margin-label { 
+            top: -60px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            color: #f9ca24; 
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #f9ca24;
+        }
+        .border-label { 
+            top: -20px; 
+            right: -100px; 
+            color: #ff6b6b; 
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff6b6b;
+        }
+        .padding-label { 
+            top: 20px; 
+            left: 20px; 
+            color: #fff; 
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #fff;
+        }
+        .content-label { 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: #4ecdc4; 
+            background: rgba(26, 26, 46, 0.9);
+            border: 2px solid #4ecdc4;
+            z-index: 10;
+        }
+
+        .house-metaphor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .house-structure, .house-painted {
+            width: 200px;
+            height: 180px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .house-structure {
+            border: 3px solid #00ff88;
+            background: transparent;
+        }
+
+        .house-painted {
+            border: 3px solid #00ff88;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .roof {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+
+        .house-structure .roof {
+            border-bottom: 40px solid #00ff88;
+        }
+
+        .house-painted .roof {
+            border-bottom: 40px solid #f9ca24;
+            filter: drop-shadow(0 0 10px rgba(249, 202, 36, 0.5));
+        }
+
+        .door {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+        }
+
+        .house-structure .door {
+            border: 2px solid #00ff88;
+            background: transparent;
+        }
+
+        .house-painted .door {
+            background: #8B4513;
+            border: 2px solid #654321;
+            border-radius: 3px;
+        }
+
+        .tag-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .tag-example {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #4ecdc4;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tag-name {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .tag-description {
+            color: #e8e8e8;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .class-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+            align-items: center;
+        }
+
+        .class-example {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #4ecdc4;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .fancy-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            border: none;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ff88;
+            animation: float 10s linear infinite;
+        }
+
+        .floating-element:nth-child(2n) {
+            background: #ff6b6b;
+            animation-duration: 12s;
+        }
+
+        .floating-element:nth-child(3n) {
+            background: #4ecdc4;
+            animation-duration: 8s;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes retroPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+            }
+            50% { 
+                transform: scale(1.1) rotate(5deg);
+                box-shadow: 0 0 60px rgba(78, 205, 196, 0.7);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1rem;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #f9ca24;
+            font-weight: bold;
+        }
+
+        .small-text {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 0 10px;
+        }
+
+        .comparison-container-plain {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .comparison-title-plain {
+            color: black;
+            font-family: serif;
+            font-size: 1.5rem;
+            margin: 0;
+            background: none;
+            -webkit-text-fill-color: black;
+            text-shadow: none;
+        }
+
+        .comparison-text-plain {
+            color: black;
+            font-family: serif;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .comparison-list-plain {
+            color: black;
+            font-family: serif;
+        }
+
+        .comparison-list-item-plain {
+            font-size: 16px;
+            margin-bottom: 0px;
+            font-family: serif;
+            color: black;
+        }
+
+        .comparison-container-styled {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .comparison-title-styled {
+            text-align: center;
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .comparison-text-styled {
+            text-align: center;
+            color: #e8e8e8;
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        .comparison-list-styled {
+            color: #4ecdc4;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .builder-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 30px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .builder-image-container:first-child {
+            grid-column: 1 / -1; /* Span full width */
+        }
+
+        .builder-image-container {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #4ecdc4;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .builder-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+            margin-top: 15px;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media screen and (max-width: 768px) {
+            .slide {
+                padding: 40px 25px;
+            }
+
+            /* Scale down main headings */
+            .slide-title-main {
+                font-size: 3rem;
+                margin-bottom: 25px;
+            }
+
+            .slide-heading-primary {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .slide-heading-secondary {
+                font-size: 1.5rem;
+                margin-bottom: 25px;
+            }
+
+            .slide-heading-tertiary {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 40px;
+                padding: 0 15px;
+            }
+
+            /* Stack all two-column layouts with generous spacing */
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .house-metaphor {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                margin: 40px 0;
+            }
+
+            .class-demo {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            /* Adjust tag showcase for mobile */
+            .tag-showcase {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin: 40px 0;
+                padding: 0 15px;
+            }
+
+            /* Scale down containers with better spacing */
+            .webpage-container {
+                padding: 25px;
+                max-width: 100%;
+                margin: 30px 0;
+            }
+
+            .webpage-container .webpage-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+
+            .webpage-container .webpage-heading {
+                font-size: 1.4rem;
+                margin: 30px 0 20px 0;
+            }
+
+            .comparison-title-styled {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .comparison-container-styled {
+                margin: 30px 0;
+                padding: 25px;
+            }
+
+            /* Scale down code blocks with better spacing */
+            .code-block {
+                padding: 25px;
+                font-size: 0.8rem;
+                margin: 35px 0;
+            }
+
+            /* Scale down demo elements with spacing */
+            .demo-box {
+                width: 150px;
+                height: 150px;
+                font-size: 1.2rem;
+                margin: 40px auto;
+            }
+
+            .box-model-demo {
+                width: 280px;
+                height: 180px;
+                margin: 40px auto;
+                font-size: 1rem;
+            }
+
+            .margin-label {
+                top: -45px;
+                font-size: 0.9rem;
+            }
+
+            .border-label {
+                right: -80px;
+                font-size: 0.9rem;
+            }
+
+            .padding-label, .content-label {
+                font-size: 0.9rem;
+            }
+
+            /* Scale down houses with spacing */
+            .house-structure, .house-painted {
+                width: 150px;
+                height: 135px;
+                margin: 0 auto 20px auto;
+            }
+
+            .roof {
+                border-left-width: 37px;
+                border-right-width: 37px;
+            }
+
+            .house-structure .roof, .house-painted .roof {
+                border-bottom-width: 30px;
+            }
+
+            .door {
+                width: 22px;
+                height: 37px;
+            }
+
+            /* Adjust slide text with better spacing */
+            .slide-text, .slide-list-item {
+                font-size: 1rem;
+                padding: 0 10px;
+                margin-bottom: 25px;
+            }
+
+            .small-text {
+                font-size: 0.8rem;
+                padding: 0 10px;
+                margin-bottom: 20px;
+            }
+
+            /* Stack slide lists better on mobile with spacing */
+            .slide-list {
+                max-width: 100%;
+                padding: 0 15px;
+                margin: 30px auto;
+            }
+
+            /* Builder showcase mobile adjustments */
+            .builder-showcase {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 40px;
+                margin: 40px 0;
+                padding: 0 15px;
+            }
+
+            .builder-image-container:first-child {
+                grid-column: 1; /* Reset to single column */
+                margin-bottom: 10px;
+            }
+
+            .builder-image-container {
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+
+            /* Add spacing between different slide sections */
+            .slide-content > * {
+                margin-bottom: 25px;
+            }
+
+            .slide-content > *:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .slide {
+                padding: 30px 20px;
+            }
+
+            /* Even smaller headings for very small screens */
+            .slide-title-main {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .slide-heading-primary {
+                font-size: 1.8rem;
+                margin-bottom: 35px;
+            }
+
+            .slide-heading-secondary {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 45px;
+                padding: 0 10px;
+            }
+
+            /* Increase gaps for very small screens */
+            .two-column {
+                gap: 60px;
+            }
+
+            .house-metaphor {
+                gap: 60px;
+                margin: 50px 0;
+            }
+
+            .class-demo {
+                gap: 60px;
+            }
+
+            .webpage-container {
+                padding: 20px;
+                margin: 40px 0;
+            }
+
+            .webpage-container .webpage-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .comparison-title-styled {
+                font-size: 1.5rem;
+                margin-bottom: 25px;
+            }
+
+            .comparison-container-styled {
+                margin: 40px 0;
+                padding: 20px;
+            }
+
+            .demo-box {
+                width: 120px;
+                height: 120px;
+                font-size: 1rem;
+                margin: 50px auto;
+            }
+
+            .box-model-demo {
+                width: 240px;
+                height: 150px;
+                font-size: 0.9rem;
+                padding: 20px;
+                border-width: 10px;
+                margin: 50px auto;
+            }
+
+            .house-structure, .house-painted {
+                width: 120px;
+                height: 108px;
+                margin: 0 auto 25px auto;
+            }
+
+            .code-block {
+                margin: 45px 0;
+                padding: 20px;
+            }
+
+            .slide-text, .slide-list-item {
+                margin-bottom: 30px;
+                padding: 0 15px;
+            }
+
+            .small-text {
+                margin-bottom: 25px;
+                padding: 0 15px;
+            }
+
+            .slide-list {
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+
+            .tag-showcase {
+                gap: 35px;
+                margin: 50px 0;
+                padding: 0 20px;
+            }
+
+            .builder-showcase {
+                gap: 50px;
+                margin: 50px 0;
+                padding: 0 20px;
+            }
+
+            .builder-image-container {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            /* Enhanced spacing between slide content sections */
+            .slide-content > * {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="left: 40%; animation-delay: 3s;"></div>
+        <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="floating-element" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+        <div class="floating-element" style="left: 80%; animation-delay: 7s;"></div>
+        <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide">
+        <div class="slide-content">
+            <h1 class="slide-title-main">HTML & CSS</h1>
+            <p class="subtitle">An Introduction to Web Fundamentals</p>
+        </div>
+        <div class="slide-number">01</div>
+    </div>
+
+    <!-- Slide 2: What we're going to learn here -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary">What we're going to learn here</h2>
+            <p class="subtitle">Every expert was once a beginner!</p>
+            <ul class="slide-list">
+                <li class="slide-list-item">Simple HTML structure</li>
+                <li class="slide-list-item">Basic tags: h1, p, div, img, a</li>
+                <li class="slide-list-item">CSS Classes</li>
+                <li class="slide-list-item">How CSS works with HTML</li>
+                <li class="slide-list-item">How we use HTML and CSS in Builder at LegalZoom</li>
+            </ul>
+        </div>
+        <div class="slide-number">02</div>
+    </div>
+
+    <!-- Slide 3: House Metaphor -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary" style="padding-bottom:30px;">Think of Building a House</h2>
+            <div class="house-metaphor">
+                <div>
+                    <h4 class="slide-heading-tertiary" style="padding-bottom:15px;">HTML = Structure</h4>
+                    <div class="house-structure">
+                        <div class="roof"></div>
+                        <div class="door"></div>
+                    </div>
+                    <p style="padding-top:15px;" class="small-text">The frame, walls, and foundation</p>
+                </div>
+                <div>
+                    <h4 class="slide-heading-tertiary" style="padding-bottom:15px;">CSS = Paint & Design</h4>
+                    <div class="house-painted">
+                        <div class="roof"></div>
+                        <div class="door"></div>
+                    </div>
+                    <p style="padding-top:15px;" class="small-text">Colors, textures, and styling</p>
+                </div>
+            </div>
+            <p class="slide-text"><span class="highlight">HTML</span> builds the skeleton, <span class="highlight">CSS</span> makes it beautiful!</p>
+        </div>
+        <div class="slide-number">03</div>
+    </div>
+
+    <!-- Slide 4: What is HTML? -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary" style="padding-bottom:30px;">What is HTML?</h2>
+            <ul class="slide-list">
+                <li class="slide-list-item"><span class="highlight">H</span>yper<span class="highlight">T</span>ext <span class="highlight">M</span>arkup <span class="highlight">L</span>anguage</li>
+                <li class="slide-list-item">Uses the <span class="highlight">DOM</span> or <span class="highlight"> D</span>ocument<span class="highlight"> O</span>bject<span class="highlight"> M</span>odel to make up the skeleton and structure of every webpage</li>
+                <li class="slide-list-item">Within the <span class="highlight">DOM</span>, uses <span class="highlight">tags</span> to define different parts of content i.e. this is "a heading" or "a paragraph," etc</li>
+                <li class="slide-list-item">We then use CSS to style those <span class="highlight">tags</span></li>
+            </ul>
+        </div>
+        <div class="slide-number">04</div>
+    </div>
+
+    <!-- Slide 5: Common HTML Tags -->
+    <div class="slide">
+        <div class="slide-content">
+            <h3 class="slide-heading-secondary">Essential HTML Tags</h3>
+            <div class="tag-showcase">
+                <div class="tag-example">
+                    <div class="tag-name">&lt;h1&gt; to &lt;h6&gt;</div>
+                    <div class="tag-description">Headings (biggest to smallest)</div>
+                </div>
+                <div class="tag-example">
+                    <div class="tag-name">&lt;p&gt;</div>
+                    <div class="tag-description">Paragraphs of text</div>
+                </div>
+                <div class="tag-example">
+                    <div class="tag-name">&lt;a&gt;</div>
+                    <div class="tag-description">Links to other pages</div>
+                </div>
+                <div class="tag-example">
+                    <div class="tag-name">&lt;img&gt;</div>
+                    <div class="tag-description">Images and pictures</div>
+                </div>
+                <div class="tag-example">
+                    <div class="tag-name">&lt;ul&gt; &lt;li&gt;</div>
+                    <div class="tag-description">Bullet point lists</div>
+                </div>
+                <div class="tag-example">
+                    <div class="tag-name">&lt;div&gt;</div>
+                    <div class="tag-description">Generic containers</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">05</div>
+    </div>
+
+    <!-- Slide 6: Basic HTML Structure -->
+    <div class="slide">
+        <div class="slide-content">
+            <h3 class="slide-heading-secondary">The HTML DOM with Tags!</h3>
+           <div class="code-block">
+                            &lt;html&gt;
+                        <br> &lt;head&gt;&lt;/head&gt;
+                       <br> &lt;body&gt;
+                       <br> &lt;h1&gt;My Blog Post&lt;/h1&gt;
+                       <br> &lt;p&gt;Welcome to my &lt;a href="about.html"&gt;amazing&lt;/a&gt; blog!&lt;/p&gt;
+                       <br> &lt;img src="photo.jpg" alt="My photo"&gt;
+                       <br> &lt;h2&gt;My Favorite Things:&lt;/h2&gt;
+                       <br> &lt;ul&gt;
+                       <br> &lt;li&gt;Dogs&lt;/li&gt;
+                       <br> &lt;li&gt;Coffee&lt;/li&gt;
+                       <br> &lt;li&gt;Cats&lt;/li&gt;
+                       <br> &lt;/ul&gt;
+                       <br> &lt;body&gt;
+                       <br> &lt;/html&gt;
+                    </div>
+            <p class="slide-text">The DOM always uses <span class="highlight"> HTML</span>, <span class="highlight"> head</span>, and <span class="highlight"> body</span> tags</p>
+        </div>
+        <div class="slide-number">06</div>
+    </div>
+
+    <!-- Slide 7: HTML Tags in Action -->
+    <div class="slide">
+        <div class="slide-content">
+            <h3 class="slide-heading-secondary">HTML Tags in Action</h3>
+            <p style="margin-bottom:50px;" class="small-text">HTML creates the <span class="highlight">structure</span> of content</p>
+            <div class="two-column">
+                <div>
+                    <h4 class="slide-heading-tertiary">The Code:</h4>
+                    <div class="code-block">
+                        &lt;h1&gt;My Blog Post&lt;/h1&gt;
+                       <br> &lt;p&gt;Welcome to my &lt;a href="about.html"&gt;amazing&lt;/a&gt; blog!&lt;/p&gt;
+                       <br> &lt;img src="photo.jpg" alt="My photo"&gt;
+                       <br> &lt;h2&gt;My Favorite Things:&lt;/h2&gt;
+                       <br> &lt;ul&gt;
+                      <br>  &lt;li&gt;Dogs&lt;/li&gt;
+                       <br> &lt;li&gt;Coffee&lt;/li&gt;
+                       <br> &lt;li&gt;Cats&lt;/li&gt;
+                      <br>  &lt;/ul&gt;
+                    </div>
+                </div>
+                <div>
+                    <h4 class="slide-heading-tertiary">What Browser Sees:</h4>
+                    <div class="webpage-container">
+                        <h1 class="webpage-title">My Blog Post</h1>
+                        <p class="webpage-text">Welcome to my <a href="#" class="webpage-link" onclick="alert('Link clicked!'); return false;">amazing</a> blog!</p>
+                        <img src="https://www.shutterstock.com/image-vector/vector-silhouette-dog-on-white-600nw-2497950891.jpg" alt="My photo" class="webpage-image">
+                        <h2 class="webpage-heading">My Favorite Things:</h2>
+                        <ul class="webpage-list">
+                            <li class="webpage-list-item">Coding</li>
+                            <li class="webpage-list-item">Coffee</li>
+                            <li class="webpage-list-item">Cats</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">07</div>
+    </div>
+
+    <!-- Slide 8: What is CSS? -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary">What is CSS?</h2>
+            <ul class="slide-list">
+                <li class="slide-list-item"><span class="highlight">C</span>ascading <span class="highlight">S</span>tyle <span class="highlight">S</span>heets</li>
+                <li class="slide-list-item">The paint, wallpaper, and interior design of the web</li>
+                <li class="slide-list-item">Controls <span class="highlight">how</span> HTML elements look</li>
+                <li class="slide-list-item">Handles colors, fonts, sizes, spacing, and layout</li>
+                <li class="slide-list-item">Brings websites to life with animations and effects</li>
+            </ul>
+        </div>
+        <div class="slide-number">08</div>
+    </div>
+
+    <!-- Slide 9: CSS Classes -->
+    <div class="slide">
+        <div class="slide-content">
+            <h3 class="slide-heading-secondary">Use CSS Classes to Style Tags</h3>
+            <p class="slide-text" style="margin-bottom: 30px;">They start with a <span class="highlight">.</span> in CSS and use <span class="highlight">class=""</span> in HTML!</p>
+            <div class="class-demo">
+                <div>
+                    <h4 class="slide-heading-tertiary">The CSS:</h4>
+                    <div class="code-block">
+                        .yellow {
+                            color: yellow;
+                        }
+                        <br>  .pink {
+                            color: pink;
+                        }
+                          <br>  .white {
+                            color: white;
+                        }
+                    </div>
+                </div>
+                <div>
+                    <h4 class="slide-heading-tertiary">The HTML:</h4>
+                    <div class="code-block">
+                       <span style="color:yellow;">  &lt;h1 class="yellow"&gt;This h1 is yellow!&lt;/h1&gt;</span>
+                       <br> <span style="color:pink;"> &lt;p class="pink"&gt;This p is pink!&lt;/p&gt;</span>
+                       <br> <span style="color:white;"> &lt;h3 class="white"&gt;This h3 is white!&lt;/h3&gt;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">09</div>
+    </div>
+
+    <!-- Slide 10: The Difference of CSS -->
+    <div class="slide">
+        <div class="slide-content">
+            <h3 class="slide-heading-secondary">The Difference of CSS</h3>
+           <p style="margin-bottom:50px;" class="small-text">CSS creates the <span class="highlight">style</span> of content</p>
+            <div class="two-column">
+                <div>
+                     <div>
+                    <h4 class="slide-heading-tertiary">What Browser Sees:</h4>
+                    <div class="webpage-container">
+                        <h1 class="webpage-title">My Blog Post</h1>
+                        <p class="webpage-text">Welcome to my <a href="#" class="webpage-link" onclick="alert('Link clicked!'); return false;">amazing</a> blog!</p>
+                        <img  src="https://www.shutterstock.com/image-vector/vector-silhouette-dog-on-white-600nw-2497950891.jpg" alt="My photo" class="webpage-image">
+                        <h2 class="webpage-heading">My Favorite Things:</h2>
+                        <ul class="webpage-list">
+                            <li class="webpage-list-item">Dogs</li>
+                            <li class="webpage-list-item">Coffee</li>
+                            <li class="webpage-list-item">Cats</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="slide-heading-tertiary">HTML + CSS (Styled):</h4>
+                    <div class="comparison-container-styled">
+                        <h1 class="comparison-title-styled">My Blog Post</h1>
+                        <p class="comparison-text-styled">Welcome to my <a href="#" class="webpage-link-special" onclick="alert('Link clicked!'); return false;">amazing</a> blog!</p>
+                       <div style="text-align: center;"> <img style="max-width: 100px; border-radius: 16px;border: 2px solid black; text-align:center; margin:auto;" src="https://www.shutterstock.com/image-vector/vector-silhouette-dog-on-white-600nw-2497950891.jpg" alt="My photo" class="webpage-image"></div>
+                       <h2  style="margin-top:30px; class="webpage-heading">My Favorite Things:</h2>
+                    <ul style="margin-top:20px;"class="comparison-list-styled">
+                        <li class="webpage-list-item">Dogs</li>
+                        <li  style="margin-top:10px; class="webpage-list-item">Coffee</li>
+                        <li  style="margin-top:10px; class="webpage-list-item">Cats</li>
+                    </ul>
+
+                         <div>
+  
+       
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">10</div>
+    </div>
+
+       <!-- Slide 13: Animation Demo -->
+ <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary">CSS Animation</h2>
+            <div class="demo-box">
+                ANIMATED!
+            </div>
+            <div class="code-block">
+                @keyframes retroPulse {
+              <br>    0%, 100% { 
+                  <br>     transform: scale(1) rotate(0deg);
+                   <br>    box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+              <br>     }
+               <br>    50% { 
+                <br>       transform: scale(1.1) rotate(5deg);
+               <br>        box-shadow: 0 0 60px rgba(78, 205, 196, 0.7);
+             <br>      }
+         <br>      }
+
+             <br>  .demo-box {
+             <br>    animation: retroPulse 2s ease-in-out infinite;
+        <br>     }
+      </div>
+        </div>
+        <div class="slide-number">13</div>
+    </div>
+
+    <!-- Slide 11: HTML + CSS Together -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 style="margin-bottom:50px;"class="slide-heading-primary"><span class="highlight">Together</span> CSS & HTML make beautiful, functional websites!</h2>
+            <div class="two-column">
+                <div>
+                    <h4 class="slide-heading-tertiary" style="text-align: center;">HTML Provides:</h4>
+                    <ul style="text-align: center;margin-bottom:20px;" class="slide-list; ">
+                        <p class="slide-list-item">Content structure</p>
+                        <p class="slide-list-item">Semantic meaning</p>
+                        <p class="slide-list-item">Text and images</p>
+                        <p  dclass="slide-list-item">The foundation</p>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="slide-heading-tertiary" style="text-align: center;">CSS Provides:</h4>
+                    <ul style="text-align: center;margin-bottom: 20px;" class="slide-list">
+                        <p class="slide-list-item">Visual appearance</p>
+                        <p class="slide-list-item">Layout and positioning</p>
+                        <p class="slide-list-item">Colors and fonts</p>
+                        <p class="slide-list-item">Animations and effects</p>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">11</div>
+    </div>
+
+    <!-- Slide 14: Getting Started -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="slide-heading-primary">A look at LegalZoom's Builder</h2>
+            <p class="subtitle">We use Builder.io to host our pages</p>
+            
+            <div class="builder-showcase">
+                <div class="builder-image-container">
+                    <h4 class="slide-heading-tertiary">Builder Interface</h4>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Builder Interface" class="builder-image">
+                </div>
+                <div class="builder-image-container">
+                    <h4 class="slide-heading-tertiary">HTML in Builder</h4>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="HTML in Builder" class="builder-image">
+                </div>
+                <div class="builder-image-container">
+                    <h4 class="slide-heading-tertiary">CSS in Builder</h4>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="CSS in Builder" class="builder-image">
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">14</div>
+    </div>
+
+    <!-- Slide 15: Thank You -->
+    <div class="slide">
+        <div class="slide-content">
+            <h1 class="slide-title-main">Ready to Build?</h1>
+            <p class="subtitle">HTML + CSS = Endless Possibilities</p>
+            <p class="slide-text">Build the web, one element at a time!</p>
+        </div>
+        <div class="slide-number">15</div>
+    </div>
+</body>
+</html>
